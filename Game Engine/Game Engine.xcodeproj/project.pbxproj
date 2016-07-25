@@ -13,6 +13,11 @@
 		042695641D3C60B400C622EC /* libGLEW.1.11.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 042695611D3C60B400C622EC /* libGLEW.1.11.0.dylib */; };
 		042695651D3C60B400C622EC /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 042695621D3C60B400C622EC /* libGLEW.a */; };
 		042695661D3C60B400C622EC /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 042695631D3C60B400C622EC /* libglfw3.3.2.dylib */; };
+		044932191D3F453000B94D4B /* libGLEWmx.1.11.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 044932171D3F453000B94D4B /* libGLEWmx.1.11.0.dylib */; };
+		0449321A1D3F453000B94D4B /* libGLEWmx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 044932181D3F453000B94D4B /* libGLEWmx.a */; };
+		049C5CAD1D3F46F000C9D36C /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 049C5CAB1D3F46F000C9D36C /* Primitive.cpp */; };
+		049C5CB41D3F490200C9D36C /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 049C5CB21D3F490200C9D36C /* shader.cpp */; };
+		049C5CB71D3F528000C9D36C /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 049C5CB51D3F528000C9D36C /* Cube.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +42,16 @@
 		042695611D3C60B400C622EC /* libGLEW.1.11.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.11.0.dylib; path = "Game Engine/lib/libGLEW.1.11.0.dylib"; sourceTree = "<group>"; };
 		042695621D3C60B400C622EC /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = "Game Engine/lib/libGLEW.a"; sourceTree = "<group>"; };
 		042695631D3C60B400C622EC /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = "Game Engine/lib/libglfw3.3.2.dylib"; sourceTree = "<group>"; };
+		044932171D3F453000B94D4B /* libGLEWmx.1.11.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEWmx.1.11.0.dylib; path = "Game Engine/lib/libGLEWmx.1.11.0.dylib"; sourceTree = "<group>"; };
+		044932181D3F453000B94D4B /* libGLEWmx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEWmx.a; path = "Game Engine/lib/libGLEWmx.a"; sourceTree = "<group>"; };
+		049C5CAB1D3F46F000C9D36C /* Primitive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Primitive.cpp; path = Primitive/Primitive.cpp; sourceTree = "<group>"; };
+		049C5CAC1D3F46F000C9D36C /* Primitive.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Primitive.hpp; path = Primitive/Primitive.hpp; sourceTree = "<group>"; };
+		049C5CB21D3F490200C9D36C /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shader.cpp; path = common/shader.cpp; sourceTree = "<group>"; };
+		049C5CB31D3F490200C9D36C /* shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = shader.hpp; path = common/shader.hpp; sourceTree = "<group>"; };
+		049C5CB51D3F528000C9D36C /* Cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cube.cpp; path = Primitive/Cube.cpp; sourceTree = "<group>"; };
+		049C5CB61D3F528000C9D36C /* Cube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Cube.hpp; path = Primitive/Cube.hpp; sourceTree = "<group>"; };
+		049C5CB81D3F53A100C9D36C /* SimpleFragmentShader.fragmentshader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleFragmentShader.fragmentshader; path = "Game Engine/Primitive/SimpleFragmentShader.fragmentshader"; sourceTree = SOURCE_ROOT; };
+		049C5CB91D3F53A100C9D36C /* SimpleVertexShader.vertexshader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleVertexShader.vertexshader; path = "Game Engine/Primitive/SimpleVertexShader.vertexshader"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,10 +59,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				042695641D3C60B400C622EC /* libGLEW.1.11.0.dylib in Frameworks */,
 				042695651D3C60B400C622EC /* libGLEW.a in Frameworks */,
-				042695661D3C60B400C622EC /* libglfw3.3.2.dylib in Frameworks */,
+				042695641D3C60B400C622EC /* libGLEW.1.11.0.dylib in Frameworks */,
+				0449321A1D3F453000B94D4B /* libGLEWmx.a in Frameworks */,
+				044932191D3F453000B94D4B /* libGLEWmx.1.11.0.dylib in Frameworks */,
 				0426955E1D3C5F5200C622EC /* GLUT.framework in Frameworks */,
+				042695661D3C60B400C622EC /* libglfw3.3.2.dylib in Frameworks */,
 				042695571D3C494900C622EC /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +75,8 @@
 		042695411D3C493200C622EC = {
 			isa = PBXGroup;
 			children = (
+				044932171D3F453000B94D4B /* libGLEWmx.1.11.0.dylib */,
+				044932181D3F453000B94D4B /* libGLEWmx.a */,
 				042695611D3C60B400C622EC /* libGLEW.1.11.0.dylib */,
 				042695621D3C60B400C622EC /* libGLEW.a */,
 				042695631D3C60B400C622EC /* libglfw3.3.2.dylib */,
@@ -81,9 +100,33 @@
 		0426954C1D3C493200C622EC /* Game Engine */ = {
 			isa = PBXGroup;
 			children = (
+				049C5CB11D3F48EC00C9D36C /* common */,
+				0449321B1D3F46BF00B94D4B /* Primitive */,
 				0426954D1D3C493200C622EC /* main.cpp */,
 			);
 			path = "Game Engine";
+			sourceTree = "<group>";
+		};
+		0449321B1D3F46BF00B94D4B /* Primitive */ = {
+			isa = PBXGroup;
+			children = (
+				049C5CB81D3F53A100C9D36C /* SimpleFragmentShader.fragmentshader */,
+				049C5CB91D3F53A100C9D36C /* SimpleVertexShader.vertexshader */,
+				049C5CB51D3F528000C9D36C /* Cube.cpp */,
+				049C5CB61D3F528000C9D36C /* Cube.hpp */,
+				049C5CAB1D3F46F000C9D36C /* Primitive.cpp */,
+				049C5CAC1D3F46F000C9D36C /* Primitive.hpp */,
+			);
+			name = Primitive;
+			sourceTree = "<group>";
+		};
+		049C5CB11D3F48EC00C9D36C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				049C5CB21D3F490200C9D36C /* shader.cpp */,
+				049C5CB31D3F490200C9D36C /* shader.hpp */,
+			);
+			name = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +185,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049C5CB71D3F528000C9D36C /* Cube.cpp in Sources */,
 				0426954E1D3C493200C622EC /* main.cpp in Sources */,
+				049C5CB41D3F490200C9D36C /* shader.cpp in Sources */,
+				049C5CAD1D3F46F000C9D36C /* Primitive.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,8 +284,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Game",
-					Engine/lib,
+					"\"$(PROJECT_DIR)/Game Engine\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "i386 x86_64";
@@ -252,8 +297,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Game",
-					Engine/lib,
+					"\"$(PROJECT_DIR)/Game Engine\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "i386 x86_64";
@@ -279,6 +323,7 @@
 				042695531D3C493200C622EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

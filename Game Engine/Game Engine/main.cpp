@@ -9,62 +9,73 @@
 #include <iostream>
 #include "include/GL/glew.h"
 #include "include/GLFW/glfw3.h"
+#include "common/shader.hpp"
+#include "Cube.hpp"
+
+GLFWwindow* window;
 
 // To capture key presses
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
 int main(int argc, const char * argv[]) {
+    // Initialise GLFW
+    if( !glfwInit() )
+    {
+        fprintf( stderr, "Failed to initialize GLFW\n" );
+        getchar();
+        return -1;
+    }
     
-    glfwInit();
+    glfwWindowHint(GLFW_SAMPLES, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     
-    // Create a window
-    
-    GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", nullptr, nullptr);
-    if (window == nullptr)
-    {
-        std::cout << "Failed to create GLFW window" << std::endl;
+    window = glfwCreateWindow( 1024, 768, "Game", NULL, NULL);
+    if( window == NULL ){
+        fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
+        getchar();
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
     
-    if (glewInit() != GLEW_OK)
-    {
-        std::cout << "Failed to initialize GLEW" << std::endl;
+    // Initialize GLEW
+    glewExperimental = true;
+    if (glewInit() != GLEW_OK) {
+        fprintf(stderr, "Failed to initialize GLEW\n");
+        getchar();
+        glfwTerminate();
         return -1;
     }
     
-    int width, height;
-    glfwGetFramebufferSize(window, &width, &height);
-    
-    // Set viewport
-    glViewport(0, 0, width, height);
+    // Ensure we can capture the escape key being pressed below
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-    glfwSetKeyCallback(window, key_callback);
-
-    while(!glfwWindowShouldClose(window))
-    {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    
+    Cube mCube;
+    
+    do{
+        
+        // Clear the screen
         glClear(GL_COLOR_BUFFER_BIT);
         
-        glfwPollEvents();
-        glfwSwapBuffers(window);
+        mCube.draw();
         
-    }
+        // Swap buffers
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+        
+    } // Check if the ESC key was pressed or the window was closed
+    while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
+          glfwWindowShouldClose(window) == 0 );
     
-    // Terminate application
+    mCube.remove();
+    // Close OpenGL window and terminate GLFW
     glfwTerminate();
+    
     return 0;
 }
 
-// Key presses
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
-{
-    if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, GL_TRUE);
-}
